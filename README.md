@@ -1,32 +1,12 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Creiamo un nuovo progetto Laravel (potete anche usare il template che avete già) per gestire i personaggi di un Gioco di Ruolo
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Creiamo una tabella items attraverso una migration (campi utili: name, description, slug, category, type, weight, cost)
+Alimentiamo la tabella con un seeder prendendo i dati dal file CSV allegato: il file contiene anche dei dati aggiuntivi che però non servono ai fini della popolazione (avete anche la versione JSON se vi aiuta a capire meglio la struttura dei dati)
 
-## Init project
+## BONUS
 
-Per il frontend:
+Mostriamo in pagina l'elenco degli items (Rotta/Controller/Vista)#
 
-```
-npm install
-npm run dev
-```
-
-Per il backend:
-
-```
-composer install
-php artisan serve
-```
-
-Poi copia il file `.env.example` in `.env` e configura la connessione al DB
-
-## Create a controller
-
-...
-
-## Create a model
+1 - creare tabella(con i campi dati)
+2 - estrarre i dati dal file csv e inserirli nel seeder
+3 - stampare l tabella in pagina.
