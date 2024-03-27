@@ -28,6 +28,11 @@
                     <td>{{ $character->description }}</td>
                     <td><a href="{{ route('characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a></td>
                     <td><a href="{{ route('characters.edit', $character) }}"><i class="fa-solid fa-pencil"></i></a></td>
+                    <td><form action="{{ route('characters.destroy', $character) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-link"><i class="fa-solid fa-trash"></i></button>
+                    </form></td>
 
                     {{-- <td></td>
                     <td></td>
