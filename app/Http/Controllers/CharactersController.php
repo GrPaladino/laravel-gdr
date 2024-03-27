@@ -42,7 +42,7 @@ class CharactersController extends Controller
         $character = new Characters;
         $character->fill($data);
         $character->save();
-        return redirect()->route('characters.show', compact('character'));
+        return redirect()->route('characters.show', compact('character'))->with('message-class', 'alert-success')->with('message', 'Personaggio inserito correttamente.');
     }
 
     /**
@@ -78,7 +78,7 @@ class CharactersController extends Controller
     {
         $data = $request->all();
         $character->update($data);
-        return redirect()->route('characters.show', $character);
+        return redirect()->route('characters.show', $character)->with('message-class', 'alert-success')->with('message', 'Personaggio modificato correttamente.');
     }
 
     /**
@@ -89,8 +89,8 @@ class CharactersController extends Controller
      */
     public function destroy(Characters $character)
     {
-       $character->delete();
-       return redirect()->route('characters.index');
+        $character->delete();
+        return redirect()->route('characters.index')->with('message-class', 'alert-danger')->with('message', 'Personaggio eliminato correttamente.');
 
     }
 }
