@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\CharactersController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// Rotte tabella Items
 Route::get('/', [ItemController::class, 'index'])->name('home');
+
+
+// Rotte tabella Characters
+Route::resource('character', CharactersController::class);
