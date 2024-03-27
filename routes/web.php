@@ -20,4 +20,4 @@ Route::get('/', [ItemController::class, 'index'])->name('home');
 
 
 // Rotte tabella Characters
-Route::resource('character', CharactersController::class);
+Route::resource('characters', CharactersController::class);
