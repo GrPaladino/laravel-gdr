@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Characters;
+use Doctrine\DBAL\Driver\Mysqli\Initializer\Charset;
 use Illuminate\Http\Request;
 
 class CharactersController extends Controller
@@ -26,7 +27,7 @@ class CharactersController extends Controller
      */
     public function create()
     {
-        //
+        return view('characters.create');
     }
 
     /**
@@ -37,7 +38,11 @@ class CharactersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $character = new Characters;
+        $character->fill($data);
+        $character->save();
+        return redirect()->route('characters.show', compact('character'));
     }
 
     /**
@@ -48,7 +53,7 @@ class CharactersController extends Controller
      */
     public function show(Characters $characters)
     {
-        //
+        return view('characters.show', compact('character'));
     }
 
     /**

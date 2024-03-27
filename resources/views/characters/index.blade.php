@@ -11,7 +11,7 @@
                 {{-- <th>ID</th> --}}
                 <th>Nome</th>
                 <th>Descrizione</th>
-                <th></th>
+                <th>sdfsdf</th>
                 <th></th>
                 <th></th>
                 <th></th>
