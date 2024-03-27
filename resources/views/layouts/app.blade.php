@@ -17,6 +17,7 @@
       @include('partials.header')
 
       <main>
+        @yield('modal')
         @yield('main-content')
       </main>
 

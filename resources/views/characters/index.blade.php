@@ -28,15 +28,13 @@
                     <td>{{ $character->description }}</td>
                     <td><a href="{{ route('characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a></td>
                     <td><a href="{{ route('characters.edit', $character) }}"><i class="fa-solid fa-pencil"></i></a></td>
-                    <td><form action="{{ route('characters.destroy', $character) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-link"><i class="fa-solid fa-trash"></i></button>
-                    </form></td>
-
-                    {{-- <td></td>
-                    <td></td>
-                    <td></td> --}}
+                   
+                    <!-- Button trigger modal -->
+                    <td>
+                      <button type="button" class="btn btn-link text-danger p-0" data-bs-toggle="modal" data-bs-target="#character-{{$character->id}}">
+                      <i class="fa-solid fa-trash text-danger"></i>
+                      </button>
+                    </td>
                   </tr>
               @empty
                   <tr>
@@ -50,6 +48,40 @@
     </div>
   </section>
 @endsection
+
+
+@section('modal')
+
+@foreach($characters as $character)
+
+<!-- Modal -->
+<div class="modal fade" id="character-{{$character->id}}" tabindex="-1" aria-labelledby="character-{{$character->id}}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminare {{$character->title}}?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                L'azione é irreversibile.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                <form action="{{route('characters.destroy', $character)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">Elimina</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@endforeach
+
+@endsection
+
 
 @section ('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
