@@ -64,7 +64,7 @@ class CharactersController extends Controller
      */
     public function edit(Characters $characters)
     {
-        //
+        return view('characters.edit', compact('characters'));
     }
 
     /**
@@ -76,7 +76,9 @@ class CharactersController extends Controller
      */
     public function update(Request $request, Characters $characters)
     {
-        //
+        $data = $request->all();
+        $characters->update($data);
+        return redirect()->route('characters.show', $characters);
     }
 
     /**

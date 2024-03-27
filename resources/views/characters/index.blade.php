@@ -5,6 +5,9 @@
 @section('main-content')
   <section>
     <div class="container py-4">
+
+      <a href="{{route('characters.create')}}" class="btn btn-primary my-3">Inserisci nuovo personaggio</a>
+
         <table class="table">
             <thead>
               <tr>
