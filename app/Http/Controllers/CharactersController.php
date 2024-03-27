@@ -46,9 +46,9 @@ class CharactersController extends Controller
      * @param  \App\Models\Characters  $characters
      * @return \Illuminate\Http\Response
      */
-    public function show(Characters $characters)
+    public function show(Characters $character)
     {
-        //
+        return view('characters.show', compact('character'));
     }
 
     /**
