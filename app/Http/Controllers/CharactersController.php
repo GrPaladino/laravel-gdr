@@ -62,9 +62,9 @@ class CharactersController extends Controller
      * @param  \App\Models\Characters  $characters
      * @return \Illuminate\Http\Response
      */
-    public function edit(Characters $characters)
+    public function edit(Characters $character)
     {
-        return view('characters.edit', compact('characters'));
+        return view('characters.edit', compact('character'));
     }
 
     /**
@@ -74,11 +74,11 @@ class CharactersController extends Controller
      * @param  \App\Models\Characters  $characters
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Characters $characters)
+    public function update(Request $request, Characters $character)
     {
         $data = $request->all();
-        $characters->update($data);
-        return redirect()->route('characters.show', $characters);
+        $character->update($data);
+        return redirect()->route('characters.show', $character);
     }
 
     /**

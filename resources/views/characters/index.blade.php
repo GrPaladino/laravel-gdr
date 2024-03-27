@@ -14,7 +14,7 @@
                 {{-- <th>ID</th> --}}
                 <th>Nome</th>
                 <th>Descrizione</th>
-                <th>sdfsdf</th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -27,6 +27,8 @@
                     <td>{{ $character->name }}</td>
                     <td>{{ $character->description }}</td>
                     <td><a href="{{ route('characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a></td>
+                    <td><a href="{{ route('characters.edit', $character) }}"><i class="fa-solid fa-pencil"></i></a></td>
+
                     {{-- <td></td>
                     <td></td>
                     <td></td> --}}
