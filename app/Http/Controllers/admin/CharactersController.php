@@ -1,23 +1,25 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\Characters;
 use Doctrine\DBAL\Driver\Mysqli\Initializer\Charset;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class CharactersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $characters = Characters::all();
 
-        return view('characters.index', compact('characters'));
+        return view('admin.characters.index', compact('characters'));
     }
 
     /**
@@ -27,7 +29,7 @@ class CharactersController extends Controller
      */
     public function create()
     {
-        return view('characters.create');
+        return view('admin.characters.create');
     }
 
     /**
@@ -42,7 +44,7 @@ class CharactersController extends Controller
         $character = new Characters;
         $character->fill($data);
         $character->save();
-        return redirect()->route('characters.show', compact('character'))->with('message-class', 'alert-success')->with('message', 'Personaggio inserito correttamente.');
+        return redirect()->route('admin.characters.show', compact('character'))->with('message-class', 'alert-success')->with('message', 'Personaggio inserito correttamente.');
     }
 
     /**
@@ -53,7 +55,7 @@ class CharactersController extends Controller
      */
     public function show(Characters $character)
     {
-        return view('characters.show', compact('character'));
+        return view('admin.characters.show', compact('character'));
     }
 
     /**
@@ -64,7 +66,7 @@ class CharactersController extends Controller
      */
     public function edit(Characters $character)
     {
-        return view('characters.edit', compact('character'));
+        return view('admin.characters.edit', compact('character'));
     }
 
     /**
@@ -78,7 +80,7 @@ class CharactersController extends Controller
     {
         $data = $request->all();
         $character->update($data);
-        return redirect()->route('characters.show', $character)->with('message-class', 'alert-success')->with('message', 'Personaggio modificato correttamente.');
+        return redirect()->route('admin.characters.show', $character)->with('message-class', 'alert-success')->with('message', 'Personaggio modificato correttamente.');
     }
 
     /**
@@ -90,7 +92,7 @@ class CharactersController extends Controller
     public function destroy(Characters $character)
     {
         $character->delete();
-        return redirect()->route('characters.index')->with('message-class', 'alert-danger')->with('message', 'Personaggio eliminato correttamente.');
+        return redirect()->route('admin.characters.index')->with('message-class', 'alert-danger')->with('message', 'Personaggio eliminato correttamente.');
 
     }
 }
