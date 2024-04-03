@@ -3,50 +3,50 @@
 @section('title', 'Pagina iniziale')
 
 @section('main-content')
-  <section>
+<section>
     <div class="container py-4">
 
-      <a href="{{route('characters.create')}}" class="btn btn-primary my-3">Inserisci nuovo personaggio</a>
+        <a href="{{route('admin.characters.create')}}" class="btn btn-primary my-3">Inserisci nuovo personaggio</a>
 
         <table class="table">
             <thead>
-              <tr>
-                {{-- <th>ID</th> --}}
-                <th>Nome</th>
-                <th>Descrizione</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
+                <tr>
+                    {{-- <th>ID</th> --}}
+                    <th>Nome</th>
+                    <th>Descrizione</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
-              @forelse($characters as $character)
-                  <tr>
+                @forelse($characters as $character)
+                <tr>
                     {{-- <td>{{ $train->id }}</td> --}}
                     <td>{{ $character->name }}</td>
                     <td>{{ $character->description }}</td>
-                    <td><a href="{{ route('characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a></td>
-                    <td><a href="{{ route('characters.edit', $character) }}"><i class="fa-solid fa-pencil"></i></a></td>
-                   
+                    <td><a href="{{ route('admin.characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a></td>
+                    <td><a href="{{ route('admin.characters.edit', $character) }}"><i class="fa-solid fa-pencil"></i></a></td>
+
                     <!-- Button trigger modal -->
                     <td>
-                      <button type="button" class="btn btn-link text-danger p-0" data-bs-toggle="modal" data-bs-target="#character-{{$character->id}}">
-                      <i class="fa-solid fa-trash text-danger"></i>
-                      </button>
+                        <button type="button" class="btn btn-link text-danger p-0" data-bs-toggle="modal" data-bs-target="#character-{{$character->id}}">
+                            <i class="fa-solid fa-trash text-danger"></i>
+                        </button>
                     </td>
-                  </tr>
-              @empty
-                  <tr>
+                </tr>
+                @empty
+                <tr>
                     <td colspan="100%">Nessun risultato trovato</td>
-                  </tr>
-              @endforelse
+                </tr>
+                @endforelse
             </tbody>
-          </table>
+        </table>
 
-          {{-- {{ $items->links() }} --}}
+        {{-- {{ $items->links() }} --}}
     </div>
-  </section>
+</section>
 @endsection
 
 
@@ -67,7 +67,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                <form action="{{route('characters.destroy', $character)}}" method="POST">
+                <form action="{{route('admin.characters.destroy', $character)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger">Elimina</button>
