@@ -11,28 +11,26 @@
         <table class="table">
             <thead>
                 <tr>
-                    {{-- <th>ID</th> --}}
+                    <th>ID</th>
                     <th>Nome</th>
                     <th>Descrizione</th>
                     <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+
                 </tr>
             </thead>
             <tbody>
                 @forelse($characters as $character)
                 <tr>
-                    {{-- <td>{{ $train->id }}</td> --}}
+                    <td>{{ $character->id }}</td>
                     <td>{{ $character->name }}</td>
                     <td>{{ $character->description }}</td>
-                    <td><a href="{{ route('admin.characters.show', $character) }}"><i class="fa-solid fa-eye"></i></a></td>
-                    <td><a href="{{ route('admin.characters.edit', $character) }}"><i class="fa-solid fa-pencil"></i></a></td>
-
-                    <!-- Button trigger modal -->
                     <td>
+                        <a href="{{ route('admin.characters.show', $character) }}"><i class="fa-solid fa-eye me-2"></i></a>
+
+                        <a href="{{ route('admin.characters.edit', $character) }}"><i class="fa-solid fa-pencil me-2"></i></a>
+
                         <button type="button" class="btn btn-link text-danger p-0" data-bs-toggle="modal" data-bs-target="#character-{{$character->id}}">
-                            <i class="fa-solid fa-trash text-danger"></i>
+                            <i class="fa-solid fa-trash text-danger pb-2"></i>
                         </button>
                     </td>
                 </tr>
