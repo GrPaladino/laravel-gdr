@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\CharactersController;
+use App\Http\Controllers\admin\TypeController;
 use App\Http\Controllers\admin\ItemController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->name('admin.')->prefix("admin")->group(function () {
 
     Route::resource('characters', CharactersController::class);
+});
+
+Route::middleware('auth')->name('admin.')->prefix("admin")->group(function () {
+
+    Route::resource('types', TypeController::class);
 });
 
 
