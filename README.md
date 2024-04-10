@@ -1,12 +1,14 @@
-# Creiamo un nuovo progetto Laravel (potete anche usare il template che avete già) per gestire i personaggi di un Gioco di Ruolo
+# STEP 1
 
-Creiamo una tabella items attraverso una migration (campi utili: name, description, slug, category, type, weight, cost)
-Alimentiamo la tabella con un seeder prendendo i dati dal file CSV allegato: il file contiene anche dei dati aggiuntivi che però non servono ai fini della popolazione (avete anche la versione JSON se vi aiuta a capire meglio la struttura dei dati)
+aggiungiamo la tabella Types
+alimentiamo la tabella con i dati CSV forniti
+creiamo la relazione la relazione 1 a N con Characters
 
-## BONUS
+## STEP 2
 
-Mostriamo in pagina l'elenco degli items (Rotta/Controller/Vista)#
+creiamo la relazione la relazione N a N con tra Characters e Items
 
-1 - creare tabella(con i campi dati)
-2 - estrarre i dati dal file csv e inserirli nel seeder
-3 - stampare l tabella in pagina.
+### BONUS
+
+Alimentiamo la tabella Characters con i dati forniti
+Creiamo le CRUD sulla tabella Types (index, show, create, update, destroy)

@@ -14,7 +14,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'home']) aria-current="page" href="{{Auth::check() ? route('home') : route('welcome')}}">Home</a>
+                        <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'home']) aria-current="page" href="{{Auth::check() ? route('home') : route('welcome')}}">Items</a>
                     </li>
 
                     @auth
