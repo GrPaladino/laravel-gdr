@@ -13,6 +13,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
+                    <th>Tipologia</th>
+                    <th>Armi</th>
                     <th>Descrizione</th>
                     <th></th>
 
@@ -23,6 +25,10 @@
                 <tr>
                     <td>{{ $character->id }}</td>
                     <td>{{ $character->name }}</td>
+                    <td>{{ $character->type->name }}</td>
+                    {{-- todo: visualizzare relazione personaggi, armi --}}
+                    @dd($character->item)
+                    <td>{{ $character->item}}</td>
                     <td>{{ $character->description }}</td>
                     <td>
                         <a href="{{ route('admin.characters.show', $character) }}"><i class="fa-solid fa-eye me-2"></i></a>
