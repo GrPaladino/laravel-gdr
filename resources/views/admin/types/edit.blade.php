@@ -20,13 +20,28 @@
             @method('PUT')
 
             <label for="name" class="form-label">Nome: </label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $type->name }}" />
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $type->name }}" />
+            @error('name')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
 
             <label for="img" class="form-label">Link immagine: </label>
-            <input type="numb" class="form-control" id="img" name="img" value="{{ $type->img }}" />
+            <input type="numb" class="form-control @error('img') is-invalid @enderror" id="img" name="img" value="{{ $type->img }}" />
+            @error('img')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
 
             <label for="description" class="form-label">Descrizione: </label>
-            <textarea class="form-control" id="description" name="description" rows="4">{{ $type->description }}</textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ $type->description }}</textarea>
+            @error('description')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
 
             <button type="submit" class="btn btn-primary mt-2">Modifica</button>
         </form>

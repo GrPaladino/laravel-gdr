@@ -14,12 +14,20 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'home']) aria-current="page" href="{{Auth::check() ? route('home') : route('welcome')}}">Items</a>
+                        {{-- <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'home']) aria-current="page" href="{{Auth::check() ? route('home') : route('welcome')}}">Home</a> --}}
+                        <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'home']) aria-current="page" href="{{route('welcome')}}">Home</a>
                     </li>
 
                     @auth
                     <li class="nav-item">
                         <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'index']) aria-current="page" href="{{ route('admin.characters.index') }}">Personaggi</a>
+
+                    </li>
+                    @endauth
+
+                    @auth
+                    <li class="nav-item">
+                        <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'home']) aria-current="page" href="{{ route('home') }}">Armi</a>
 
                     </li>
                     @endauth

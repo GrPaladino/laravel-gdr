@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 use App\Models\Type;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -33,8 +36,10 @@ class TypeController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
+        $request->validated();
+
         $data = $request->all();
         $type = new Type;
         $type->fill($data);
@@ -57,7 +62,6 @@ class TypeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
      */
     public function edit(Type $type)
     {
@@ -69,10 +73,10 @@ class TypeController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
+        $request->validated();
         $data = $request->all();
         $type->update($data);
         return redirect()->route('admin.types.show', $type)->with('message-class', 'alert-success')->with('message', 'Tipo di personaggio modificato correttamente.');

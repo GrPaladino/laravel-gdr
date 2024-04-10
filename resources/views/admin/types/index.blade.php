@@ -11,6 +11,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nome</th>
                     <th>Immagine</th>
                     {{-- <th>Descrizione</th> --}}
@@ -21,6 +22,7 @@
             <tbody>
                 @forelse($types as $type)
                 <tr>
+                    <td>{{ $type->id }}</td>
                     <td>{{ $type->name }}</td>
                     <td>{{ $type->img }}</td>
                     {{-- <td>{{ $type->description }}</td> --}}
