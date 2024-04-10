@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\Type;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TypeController extends Controller
 {
@@ -14,7 +15,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -24,7 +27,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -35,7 +38,11 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $type = new Type;
+        $type->fill($data);
+        $type->save();
+        return redirect()->route('admin.types.show', compact('type'))->with('message-class', 'alert-success')->with('message', 'Tipo di personaggio inserito correttamente.');
     }
 
     /**
@@ -46,7 +53,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -57,7 +64,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -69,7 +76,9 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->all();
+        $type->update($data);
+        return redirect()->route('admin.types.show', $type)->with('message-class', 'alert-success')->with('message', 'Tipo di personaggio modificato correttamente.');
     }
 
     /**
@@ -80,6 +89,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index')->with('message-class', 'alert-danger')->with('message', 'Tipo di personaggio eliminato correttamente.');
     }
 }

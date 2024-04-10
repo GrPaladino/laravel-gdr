@@ -23,6 +23,13 @@
 
                     </li>
                     @endauth
+
+                    @auth
+                    <li class="nav-item">
+                        <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'index']) aria-current="page" href="{{ route('admin.types.index') }}">Tipi di personaggi</a>
+
+                    </li>
+                    @endauth
                 </ul>
 
                 <!-- Right Side Of Navbar -->

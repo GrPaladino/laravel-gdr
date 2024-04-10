@@ -9,6 +9,8 @@ class Type extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','img', 'description'];
+
     public function characters() {
         return $this->hasMany(Characters::class);
     }
