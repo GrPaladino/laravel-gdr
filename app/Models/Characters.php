@@ -11,13 +11,12 @@ class Characters extends Model
 
     protected $fillable = ['name', 'description', 'attack', 'defence', 'speed', 'life'];
 
-<<<<<<< HEAD
     public function type() {
         return $this->belongsTo(Type::class);
-=======
+    }
+    
     public function items()
     {
         return $this->belongsToMany(Item::class);
->>>>>>> 763f302803f48de39d7c1da99e932cf3e302eabc
     }
 }
