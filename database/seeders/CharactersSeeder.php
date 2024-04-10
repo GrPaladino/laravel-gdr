@@ -19,9 +19,9 @@ class CharactersSeeder extends Seeder
 
         foreach ($personaggi['characters'] as $personaggio) {
 
-
             $character = new Characters;
             $character->name = $personaggio['name'];
+            $character->type_id = $personaggio['type_id'];
             $character->description = $personaggio['description'];
             $character->strength = $personaggio['strength'];
             $character->defence = $personaggio['defence'];

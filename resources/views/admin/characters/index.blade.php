@@ -42,7 +42,7 @@
             </tbody>
         </table>
 
-        {{-- {{ $items->links() }} --}}
+        {{ $characters->links() }}
     </div>
 </section>
 @endsection
