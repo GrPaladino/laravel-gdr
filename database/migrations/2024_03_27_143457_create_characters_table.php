@@ -16,8 +16,9 @@ return new class extends Migration {
             $table->id();
             $table->string('name', 200);
             $table->text('description')->nullable();
-            $table->integer('attack');
+            $table->integer('strength');
             $table->integer('defence');
+            $table->integer('intelligence');
             $table->integer('speed');
             $table->integer('life');
 
