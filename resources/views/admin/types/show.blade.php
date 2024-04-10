@@ -15,10 +15,12 @@
 
 
     <div class="card text-center" style="width: 100%;">
-        <img src="{{ $type->img }}" class="card-img-top" alt="immagine">
+        <div class="tab-img">
+            <img src="{{ $type->img }}" class="card-img-top w-100" alt="immagine">
+        </div>
         <div class="card-body">
             <h2 class="card-title">{{ $type->name }}</h2>
-            <p class="card-text">{{ $type->description }}</p>
+            <p class="card-text">{{ $type->getAbstract(500) }}</p>
         </div>
     </div>
 </div>

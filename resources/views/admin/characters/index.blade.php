@@ -26,9 +26,17 @@
                     <td>{{ $character->id }}</td>
                     <td>{{ $character->name }}</td>
                     <td>{{ $character->type->name }}</td>
-                    {{-- todo: visualizzare relazione personaggi, armi --}}
-                    @dd($character->item)
-                    <td>{{ $character->item}}</td>
+
+
+                    {{-- ######### todo: verificare perché non funziona --}}
+                    <td>
+                        @forelse($character->items as $item)
+                        {!! $item->getBadge() !!}
+                        @empty
+                        <p>Nessuna tecnologia</p>
+                        @endforelse
+                    </td>
+
                     <td>{{ $character->description }}</td>
                     <td>
                         <a href="{{ route('admin.characters.show', $character) }}"><i class="fa-solid fa-eye me-2"></i></a>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pagina iniziale')
+@section('title', 'Modifica')
 
 @section('main-content')
 <section>
@@ -14,7 +14,7 @@
 
 
 
-        <h1 class="my-3">Aggiungi nuovo Tipo di personaggio</h1>
+        <h1 class="my-3">Modifica la Tipologia del personaggio</h1>
         <form action="{{ route('admin.types.update', $type) }}" method="POST">
             @csrf
             @method('PUT')
@@ -28,7 +28,7 @@
             @enderror
 
             <label for="img" class="form-label">Link immagine: </label>
-            <input type="numb" class="form-control @error('img') is-invalid @enderror" id="img" name="img" value="{{ $type->img }}" />
+            <input type="link" class="form-control @error('img') is-invalid @enderror" id="img" name="img" value="{{ $type->img }}" />
             @error('img')
             <div class="invalid-feedback">
                 {{ $message }}

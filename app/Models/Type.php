@@ -9,9 +9,15 @@ class Type extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','img', 'description'];
+    protected $fillable = ['name', 'img', 'description'];
 
-    public function characters() {
+    public function characters()
+    {
         return $this->hasMany(Characters::class);
+    }
+
+    public function getAbstract($n_chars = 100)
+    {
+        return (strlen($this->description) > $n_chars) ? substr($this->description, 0, $n_chars) . '...' : $this->description;
     }
 }

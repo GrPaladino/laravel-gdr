@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Requests\StoreCharacterRequest;
+use App\Http\Requests\UpdateCharacterRequest;
 use App\Models\Characters;
+use App\Models\Item;
 use Doctrine\DBAL\Driver\Mysqli\Initializer\Charset;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,20 +28,20 @@ class CharactersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('admin.characters.create');
+        $items = Item::all();
+
+        return view('admin.characters.create', compact('items'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCharacterRequest $request)
     {
         $data = $request->all();
         $character = new Characters;
@@ -51,7 +54,6 @@ class CharactersController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Characters  $characters
-     * @return \Illuminate\Http\Response
      */
     public function show(Characters $character)
     {
@@ -62,11 +64,12 @@ class CharactersController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Characters  $characters
-     * @return \Illuminate\Http\Response
      */
     public function edit(Characters $character)
     {
-        return view('admin.characters.edit', compact('character'));
+        $items = Item::all();
+
+        return view('admin.characters.edit', compact('character', 'items'));
     }
 
     /**
@@ -74,9 +77,8 @@ class CharactersController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Characters  $characters
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Characters $character)
+    public function update(UpdateCharacterRequest $request, Characters $character)
     {
         $data = $request->all();
         $character->update($data);
@@ -87,7 +89,6 @@ class CharactersController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Characters  $characters
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Characters $character)
     {

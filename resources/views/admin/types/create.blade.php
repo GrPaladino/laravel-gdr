@@ -24,7 +24,7 @@
             @enderror
 
             <label for="img" class="form-label">Link immagine: </label>
-            <input type="numb" class="form-control @error('img') is-invalid @enderror" id="img" name="img" />
+            <input type="link" class="form-control @error('img') is-invalid @enderror" id="img" name="img" />
             @error('img')
             <div class="invalid-feedback">
                 {{ $message }}
