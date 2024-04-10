@@ -49,12 +49,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->name('admin.')->prefix("admin")->group(function () {
 
     Route::resource('characters', CharactersController::class);
-});
-
-Route::middleware('auth')->name('admin.')->prefix("admin")->group(function () {
-
     Route::resource('types', TypeController::class);
 });
+
 
 
 

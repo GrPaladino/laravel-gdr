@@ -22,7 +22,7 @@
             <label for="name" class="form-label">Nome: </label>
             <input type="text" class="form-control" id="name" name="name" value="{{ $type->name }}" />
 
-            <label for="img" class="form-label">Linka l'immagine: </label>
+            <label for="img" class="form-label">Link immagine: </label>
             <input type="numb" class="form-control" id="img" name="img" value="{{ $type->img }}" />
 
             <label for="description" class="form-label">Descrizione: </label>
