@@ -15,7 +15,7 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-       Type::truncate();
+    //    Type::truncate();
        $csvFile = fopen(base_path("database/data/types.csv"), "r");
        $firstline = true;
        while(($data = fgetcsv($csvFile, 2000, ","))!== FALSE) {
