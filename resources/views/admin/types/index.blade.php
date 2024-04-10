@@ -24,27 +24,30 @@
                 <tr>
                     <td>{{ $type->id }}</td>
                     <td>{{ $type->name }}</td>
-                    <td>{{ $type->img }}</td>
-                    {{-- <td>{{ $type->description }}</td> --}}
                     <td>
-                        <a href="{{ route('admin.types.show', $type) }}"><i class="fa-solid fa-eye me-2"></i></a>
-
-                        <a href="{{ route('admin.types.edit', $type) }}"><i class="fa-solid fa-pencil me-2"></i></a>
-
-                        <button type="button" class="btn btn-link text-danger p-0" data-bs-toggle="modal" data-bs-target="#type-{{$type->id}}">
-                            <i class="fa-solid fa-trash text-danger pb-2"></i>
-                        </button>
+                        <div class="tab-img"><img src="{{ asset($type->img) }}" class="w-100"></div>
                     </td>
-                </tr>
-                @empty
-                <tr>
-                    <td colspan="100%">Nessun risultato trovato</td>
-                </tr>
-                @endforelse
-            </tbody>
-        </table>
+    </div>
+    {{-- <td>{{ $type->description }}</td> --}}
+    <td>
+        <a href="{{ route('admin.types.show', $type) }}"><i class="fa-solid fa-eye me-2"></i></a>
 
-        {{-- {{ $items->links() }} --}}
+        <a href="{{ route('admin.types.edit', $type) }}"><i class="fa-solid fa-pencil me-2"></i></a>
+
+        <button type="button" class="btn btn-link text-danger p-0" data-bs-toggle="modal" data-bs-target="#type-{{$type->id}}">
+            <i class="fa-solid fa-trash text-danger pb-2"></i>
+        </button>
+    </td>
+    </tr>
+    @empty
+    <tr>
+        <td colspan="100%">Nessun risultato trovato</td>
+    </tr>
+    @endforelse
+    </tbody>
+    </table>
+
+    {{-- {{ $items->links() }} --}}
     </div>
 </section>
 @endsection
