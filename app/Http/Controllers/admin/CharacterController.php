@@ -9,6 +9,7 @@ use App\Models\Item;
 use Doctrine\DBAL\Driver\Mysqli\Initializer\Charset;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Arr;
 
 
 class CharacterController extends Controller
@@ -47,6 +48,12 @@ class CharacterController extends Controller
         $character = new Character;
         $character->fill($data);
         $character->save();
+
+        if (Arr::exists($data, 'items')) {
+            $character->items()->sync($data['items']);
+        }
+
+
         return redirect()->route('admin.characters.show', compact('character'))->with('message-class', 'alert-success')->with('message', 'Personaggio inserito correttamente.');
     }
 
@@ -82,6 +89,12 @@ class CharacterController extends Controller
     {
         $data = $request->all();
         $character->update($data);
+
+        if (Arr::exists($data, 'items')) {
+            $character->items()->sync($data['items']);
+        } else {
+            $character->items()->detach();
+        }
         return redirect()->route('admin.characters.show', $character)->with('message-class', 'alert-success')->with('message', 'Personaggio modificato correttamente.');
     }
 
