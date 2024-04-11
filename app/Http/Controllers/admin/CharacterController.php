@@ -4,14 +4,14 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Requests\StoreCharacterRequest;
 use App\Http\Requests\UpdateCharacterRequest;
-use App\Models\Characters;
+use App\Models\Character;
 use App\Models\Item;
 use Doctrine\DBAL\Driver\Mysqli\Initializer\Charset;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
-class CharactersController extends Controller
+class CharacterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class CharactersController extends Controller
      */
     public function index()
     {
-        $characters = Characters::paginate(10);
+        $characters = Character::paginate(10);
 
         return view('admin.characters.index', compact('characters'));
     }
@@ -44,7 +44,7 @@ class CharactersController extends Controller
     public function store(StoreCharacterRequest $request)
     {
         $data = $request->all();
-        $character = new Characters;
+        $character = new Character;
         $character->fill($data);
         $character->save();
         return redirect()->route('admin.characters.show', compact('character'))->with('message-class', 'alert-success')->with('message', 'Personaggio inserito correttamente.');
@@ -53,9 +53,9 @@ class CharactersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Characters  $characters
+     * @param  \App\Models\Character  $characters
      */
-    public function show(Characters $character)
+    public function show(Character $character)
     {
         return view('admin.characters.show', compact('character'));
     }
@@ -63,9 +63,9 @@ class CharactersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Characters  $characters
+     * @param  \App\Models\Character  $characters
      */
-    public function edit(Characters $character)
+    public function edit(Character $character)
     {
         $items = Item::all();
 
@@ -76,9 +76,9 @@ class CharactersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Characters  $characters
+     * @param  \App\Models\Character  $characters
      */
-    public function update(UpdateCharacterRequest $request, Characters $character)
+    public function update(UpdateCharacterRequest $request, Character $character)
     {
         $data = $request->all();
         $character->update($data);
@@ -88,9 +88,9 @@ class CharactersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Characters  $characters
+     * @param  \App\Models\Character  $characters
      */
-    public function destroy(Characters $character)
+    public function destroy(Character $character)
     {
         $character->delete();
         return redirect()->route('admin.characters.index')->with('message-class', 'alert-danger')->with('message', 'Personaggio eliminato correttamente.');

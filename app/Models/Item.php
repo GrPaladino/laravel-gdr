@@ -11,6 +11,8 @@ class Item extends Model
 
     public function characters()
     {
-        return $this->belongsToMany(Characters::class);
+        return $this->belongsToMany(Character::class);
     }
+
+
 }

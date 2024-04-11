@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\ProfileController;
-use App\Http\Controllers\admin\CharactersController;
+use App\Http\Controllers\admin\CharacterController;
 use App\Http\Controllers\admin\TypeController;
 use App\Http\Controllers\admin\ItemController;
 use Illuminate\Support\Facades\Route;
@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 // Rotte tabella Characters
 Route::middleware('auth')->name('admin.')->prefix("admin")->group(function () {
 
-    Route::resource('characters', CharactersController::class);
+    Route::resource('characters', CharacterController::class);
     Route::resource('types', TypeController::class);
 });
 

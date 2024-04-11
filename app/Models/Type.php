@@ -13,7 +13,7 @@ class Type extends Model
 
     public function characters()
     {
-        return $this->hasMany(Characters::class);
+        return $this->hasMany(Character::class);
     }
 
     public function getAbstract($n_chars = 100)

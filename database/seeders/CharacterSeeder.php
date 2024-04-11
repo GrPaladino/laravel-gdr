@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Characters;
+use App\Models\Character;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CharactersSeeder extends Seeder
+class CharacterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +19,7 @@ class CharactersSeeder extends Seeder
 
         foreach ($personaggi['characters'] as $personaggio) {
 
-            $character = new Characters;
+            $character = new Character;
             $character->name = $personaggio['name'];
             $character->type_id = $personaggio['type_id'];
             $character->description = $personaggio['description'];

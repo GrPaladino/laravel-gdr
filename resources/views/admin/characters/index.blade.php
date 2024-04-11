@@ -31,7 +31,7 @@
                     {{-- ######### todo: verificare perché non funziona --}}
                     <td>
                         @forelse($character->items as $item)
-                        {!! $item->getBadge() !!}
+                        {{ $item->name }}
                         @empty
                         <p>Nessuna tecnologia</p>
                         @endforelse
