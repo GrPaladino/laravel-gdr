@@ -76,7 +76,9 @@ class CharacterController extends Controller
     {
         $items = Item::all();
 
-        return view('admin.characters.edit', compact('character', 'items'));
+        // $character_items_id = $character->items->pluck('id')->toArray();
+
+        return view('admin.characters.edit', compact('character', 'items', 'character_items_id'));
     }
 
     /**
