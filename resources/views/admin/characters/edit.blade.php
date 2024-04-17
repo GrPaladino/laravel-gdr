@@ -83,7 +83,7 @@
                         @foreach($items as $item)
                         <div class="col-3 mb-1">
                             <label class="form-check-label" for=" item-{{$item->id}}">{{$item->name}}</label>
-                            <input {{ in_array($item->id, old('item', $character_item_id ?? [])) ? 'checked' : '' }} class="form-check-input @error('items') is-invalid @enderror" type="checkbox" value="{{$item->id}}" id="item-{{$item->id}}" name="items[]">
+                            <input {{ in_array($item->id, old('items', $character_items_id ?? [])) ? 'checked' : '' }} class="form-check-input @error('items') is-invalid @enderror" type="checkbox" value="{{$item->id}}" id="item-{{$item->id}}" name="items[]">
                         </div>
                         @endforeach
                     </div>
