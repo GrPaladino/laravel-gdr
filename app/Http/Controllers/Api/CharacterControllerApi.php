@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Character;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class CharacterControllerApi extends Controller
@@ -15,8 +16,14 @@ class CharacterControllerApi extends Controller
      */
     public function index()
     {
-        $characters = Character::select(['id', 'type_id', 'name', 'strength', 'defence', 'intelligence', 'speed', 'life'])->get();
+        $characters = Character::select(['id', 'type_id', 'name', 'strength', 'defence', 'intelligence', 'speed', 'life'])
+            ->with('type:id,name,img')
+            ->get();
 
+        $types = Type::all();
+        foreach ($types as $type) {
+            $type->img = asset('storage/' . $type->img);
+        }
         return response()->json([
             'characters' => $characters,
             'success' => true
