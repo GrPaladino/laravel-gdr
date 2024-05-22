@@ -1,14 +1,15 @@
-# STEP 1
+# This is a backend management system for a Street Fighter-style combat game, built with Laravel Blade, includes tables for characters, associated types, and used weapons.
 
-aggiungiamo la tabella Types
-alimentiamo la tabella con i dati CSV forniti
-creiamo la relazione la relazione 1 a N con Characters
+The tables have both many-to-many and one-to-many relationships, and you can perform CRUD operations on them.
 
-## STEP 2
+## Screen
 
-creiamo la relazione la relazione N a N con tra Characters e Items
+![screen](/public/img/screen1.jpg)
 
-### BONUS
+![screen](/public/img/screen2.jpg)
 
-Alimentiamo la tabella Characters con i dati forniti
-Creiamo le CRUD sulla tabella Types (index, show, create, update, destroy)
+![screen](/public/img/screen3.jpg)
+
+![screen](/public/img/screen4.jpg)
+
+![screen](/public/img/screen5.jpg)
